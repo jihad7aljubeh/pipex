@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jihad <jihad@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jalju-be <jalju-be@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 00:00:00 by jihad             #+#    #+#             */
-/*   Updated: 2025/12/15 20:28:51 by jihad            ###   ########.fr       */
+/*   Created: 2025/12/31 16:44:13 by jalju-be          #+#    #+#             */
+/*   Updated: 2025/12/31 16:44:15 by jalju-be         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@ static char	*check_path(char **paths, char *cmd)
 	while (paths[i] != NULL)
 	{
 		tmp_path = ft_strjoin(paths[i], "/");
+		if (!tmp_path)
+			return (NULL);
 		full_path = ft_strjoin(tmp_path, cmd);
+		if (!full_path)
+		{
+			free(tmp_path);
+			return (NULL);
+		}
 		free(tmp_path);
 		if (access(full_path, X_OK) == 0)
 			return (full_path);
@@ -44,7 +51,14 @@ char	*find_path(char *cmd, char **envp)
 		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
 		{
 			paths = ft_split(envp[i] + 5, ':');
+			if (!paths)
+				return (NULL);
 			results = check_path(paths, cmd);
+			if (results == NULL)
+			{
+				free_split(paths);
+				return (NULL);
+			}
 			free_split(paths);
 			return (results);
 		}

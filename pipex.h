@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jihad <jihad@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jalju-be <jalju-be@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 00:35:19 by jihad             #+#    #+#             */
-/*   Updated: 2025/12/16 03:13:30 by jihad            ###   ########.fr       */
+/*   Created: 2025/12/31 16:43:56 by jalju-be          #+#    #+#             */
+/*   Updated: 2025/12/31 17:02:01 by jalju-be         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,16 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-/* utils_error.c */
 void	error_exit(char *message);
 void	ft_putstr_fd(char *s, int fd);
 void	free_split(char **split);
-void	full_free(char *str, char **arr);
-
-/* utils.c */
+void	error_dup(int *pipe_fd);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-
-/* ft_split.c */
 char	**ft_split(char const *s, char c);
-
-/* utils2.c - path and execute */
 char	*find_path(char *cmd, char **envp);
 void	execute_cmd(char *argv, char **envp);
-
-/* process_functions.c */
 void	child_process(char **argv, char **envp, int *pipe_fd);
 void	parent_process(char **argv, char **envp, int *pipe_fd);
 

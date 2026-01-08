@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jalju-be <jalju-be@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jalju-be <jalju-be@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 17:40:00 by jalju-be          #+#    #+#             */
-/*   Updated: 2025/08/30 17:24:54 by jalju-be         ###   ########.fr       */
+/*   Updated: 2025/12/24 15:20:56 by jalju-be         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		tmp = f(lst->content);
-		if(!tmp)
+		if (!tmp)
 		{
 			ft_lstclear(&head, del);
 			return (NULL);

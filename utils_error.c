@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jihad <jihad@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jalju-be <jalju-be@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 00:00:00 by jihad             #+#    #+#             */
-/*   Updated: 2025/12/16 20:48:24 by jihad            ###   ########.fr       */
+/*   Created: 2025/12/31 16:44:06 by jalju-be          #+#    #+#             */
+/*   Updated: 2025/12/31 17:03:06 by jalju-be         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,11 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+
+void	error_dup(int *pipe_fd)
+{
+	close(pipe_fd[0]);
+	close(pipe_fd[1]);
+	error_exit("dup2");
 }
