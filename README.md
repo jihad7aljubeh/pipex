@@ -71,14 +71,6 @@ This reads `input.txt`, pipes it through `grep foo`, then passes the result to `
 - UNIX/Linux environment (uses POSIX API)
 - GCC compiler
 
-## Bonus
-
-If you implemented bonus features (e.g., support for multiple commands/chaining, handling here_doc), describe them here.
-
-## License
-
-Specify your license here or remove if not applicable.
-
 ---
 
 _For educational purposes. Created by [jihad7aljubeh](https://github.com/jihad7aljubeh)._
